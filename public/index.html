@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>SPEX ID Topup Random Sweep Giveaway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            border-radius: 2px;
+        }
+
+        .upload-section {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+
+        .count-input-wrapper {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            font-size: 16px;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(15, 23, 42, 1);
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+            color: #b4b4b4;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-right: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 4px 15px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        .game-ids-display {
+            margin-top: 30px;
+            padding: 24px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            max-height: 250px;
+            overflow-y: auto;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-ids-display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .game-ids-display::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .game-ids-display::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
+
+        .game-ids-display h3 {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-ids-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .game-id-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-id-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .spin-wheel-container {
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .card-shuffle-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            perspective: 1000px;
+        }
+
+        .game-card {
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 
+                0 8px 20px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 12px 30px rgba(102, 126, 234, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .game-card.shuffling {
+            animation: shuffleCard 0.6s ease-in-out infinite;
+        }
+
+        .game-card.selected {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            transform: scale(1.2) rotateY(360deg);
+            box-shadow: 
+                0 0 40px rgba(56, 239, 125, 0.8),
+                0 0 80px rgba(56, 239, 125, 0.4);
+            z-index: 100;
+            animation: selectCard 0.8s ease-out;
+        }
+
+        .game-card.selected::before {
+            left: 100%;
+        }
+
+        @keyframes shuffleCard {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(-3deg);
+            }
+        }
+
+        @keyframes selectCard {
+            0% {
+                transform: scale(1) rotateY(0deg);
+            }
+            50% {
+                transform: scale(1.3) rotateY(180deg);
+            }
+            100% {
+                transform: scale(1.2) rotateY(360deg);
+            }
+        }
+
+        .card-shuffle-animation {
+            position: relative;
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .shuffle-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+            z-index: 50;
+            animation: pulseText 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .card-reveal-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .revealed-card {
+            width: 200px;
+            height: 250px;
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 
+                0 0 60px rgba(56, 239, 125, 0.6),
+                0 0 120px rgba(56, 239, 125, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            animation: revealCard 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revealed-card::before {
+            content: '🎉';
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes revealCard {
+            0% {
+                transform: scale(0) rotate(180deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(90deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .revealed-card-id {
+            font-size: 22px;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+        }
+
+        .winner-display {
+            margin-top: 30px;
+            padding: 35px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: 
+                0 10px 40px rgba(17, 153, 142, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .winner-display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .winner-display::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .winner-display::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .winner-display.show {
+            display: block;
+            animation: winnerPop 0.5s ease-out;
+        }
+
+        @keyframes winnerPop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+            font-weight: 600;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .winners-history {
+            margin-top: 30px;
+            padding: 28px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            display: none;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .winners-history.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .winners-history h3 {
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .winners-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .winner-item {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(17, 153, 142, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .winner-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(17, 153, 142, 0.4);
+        }
+
+        .winner-item .winner-number {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .reset-winners-btn {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .reset-winners-btn:hover {
+            background: linear-gradient(135deg, #ff5555 0%, #dd1111 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 68, 68, 0.4);
+        }
+
+        .game-id-tag.winner {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(56, 239, 125, 0.4);
+        }
+
+        .game-id-tag.winner::after {
+            content: '✓';
+            margin-left: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .available-count {
+            margin-top: 20px;
+            padding: 14px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border-radius: 12px;
+            text-align: center;
+            color: #b4b4ff;
+            font-weight: 700;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .duplicates-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%);
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            border-radius: 12px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .duplicates-info.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .duplicates-info h4 {
+            color: #ffd54f;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .duplicates-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .duplicate-tag {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #1a1a2e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 
+                0 4px 15px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn.secondary {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn.secondary:hover {
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn.success {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            box-shadow: 
+                0 4px 15px rgba(56, 239, 125, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn.success:hover {
+            box-shadow: 
+                0 8px 25px rgba(56, 239, 125, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .wheel-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .wheel-actions button {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .history-section {
+            margin-top: 30px;
+        }
+
+        .download-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .package-input-wrapper {
+            margin-top: 20px;
+        }
+
+        .package-input-wrapper input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            font-size: 16px;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .package-input-wrapper input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            background: rgba(15, 23, 42, 1);
+        }
+
+        .winners-display-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .winners-display-section h3 {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .winners-list-display {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .winners-list-display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .winners-list-display::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .winners-list-display::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
+
+        .winner-display-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .winner-display-item .winner-num {
+            background: rgba(102, 126, 234, 0.4);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .all-uids-box {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .all-uids-box h3 {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .all-uids-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .all-uids-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .all-uids-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .all-uids-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
+
+        .uid-tag {
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .uid-tag.normal {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            color: #b4b4ff;
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+
+        .uid-tag.winner {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            color: white;
+            border: 2px solid #38ef7d;
+            box-shadow: 
+                0 4px 12px rgba(56, 239, 125, 0.4),
+                0 0 0 2px rgba(56, 239, 125, 0.2);
+            position: relative;
+        }
+
+        .uid-tag.winner::before {
+            content: '✓';
+            margin-right: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .popup-overlay.show {
+            display: flex;
+        }
+
+        .popup-content {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            animation: popupSlideIn 0.4s ease-out;
+        }
+
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .popup-content h2 {
+            color: #e0e0e0;
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-content p {
+            color: #b4b4ff;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .popup-close-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 4px 15px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .popup-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .loading-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .loading-modal.show {
+            display: flex;
+        }
+
+        .loading-content {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            animation: popupSlideIn 0.4s ease-out;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(102, 126, 234, 0.3);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .credentials-box {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .credentials-box h4 {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .credential-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .credential-item:last-child {
+            border-bottom: none;
+        }
+
+        .credential-label {
+            color: #b4b4ff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .credential-value {
+            color: #38ef7d;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Mobile First - Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+
+            .upload-section {
+                padding: 20px;
+            }
+
+            .card-shuffle-container {
+                min-height: 300px;
+            }
+
+            .game-card {
+                width: 100px;
+                height: 140px;
+                font-size: 12px;
+            }
+
+            .shuffle-message {
+                font-size: 20px;
+            }
+
+            .all-uids-box,
+            .winners-display-section,
+            .download-section {
+                padding: 20px;
+            }
+
+            .all-uids-list {
+                max-height: 200px;
+            }
+
+            .nav-buttons,
+            .wheel-actions {
+                flex-direction: column;
+            }
+
+            .nav-btn,
+            button {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .popup-content,
+            .loading-content {
+                padding: 30px 20px;
+                max-width: 90%;
+            }
+
+            .popup-content h2 {
+                font-size: 22px;
+            }
+
+            .popup-content p {
+                font-size: 16px;
+            }
+
+            .game-ids-display {
+                max-height: 150px;
+            }
+
+            .winners-list-display {
+                max-height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .upload-section {
+                padding: 15px;
+            }
+
+            .game-card {
+                width: 80px;
+                height: 120px;
+                font-size: 11px;
+            }
+
+            .shuffle-message {
+                font-size: 18px;
+            }
+
+            label {
+                font-size: 12px;
+            }
+
+            input[type="file"],
+            input[type="number"],
+            input[type="text"] {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 14px;
+                font-size: 14px;
+            }
+
+            .game-id-tag,
+            .uid-tag {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 95%;
+            }
+
+            .card-shuffle-container {
+                max-width: 550px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 SPEX ID Topup Random Sweep Giveaway</h1>
+        
+        <!-- Upload Section -->
+        <div id="uploadSection" class="section active">
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <label for="csvFile">Upload CSV File</label>
+                <input type="file" id="csvFile" accept=".csv" />
+            </div>
+            
+            <div class="count-input-wrapper">
+                <label for="winnerCount">Number of Winners to Select:</label>
+                <input type="number" id="winnerCount" min="1" value="1" placeholder="Enter winner count (e.g., 30, 50)" />
+            </div>
+            
+            <button id="uploadBtn" onclick="showLoginModal()">📤 UPLOAD & PARSE CSV</button>
+            
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+            <div id="duplicatesInfo" class="duplicates-info">
+                <h4>⚠️ Duplicates Found and Removed:</h4>
+                <div id="duplicatesList" class="duplicates-list"></div>
+            </div>
+        </div>
+
+            <div id="gameIdsDisplay" class="game-ids-display" style="display: none;">
+                <h3>Game IDs in Wheel:</h3>
+                <div id="gameIdsList" class="game-ids-list"></div>
+            </div>
+
+            <div id="uploadNavButtons" class="nav-buttons" style="display: none;">
+                <button class="nav-btn secondary" onclick="showSection('upload')">← Back</button>
+                <button class="nav-btn success" onclick="showSection('wheel')">🎡 Go to Sweep Section</button>
+            </div>
+        </div>
+
+        <!-- Wheel Section -->
+        <div id="wheelSection" class="section">
+            <div class="spin-wheel-container">
+                <div class="card-shuffle-container">
+                    <div id="cardShuffleAnimation" class="card-shuffle-animation"></div>
+                    <div id="shuffleMessage" class="shuffle-message" style="display: none;">Selecting Random Winners...</div>
+                </div>
+                <div class="wheel-actions">
+                    <button id="spinBtn" onclick="spinWheel()">🎲 START RANDOM SWEEP</button>
+                </div>
+            </div>
+
+            <div id="winnerDisplay" class="winner-display">
+                <div>🎉 <span id="winnerText"></span> 🎉</div>
+            </div>
+
+            <div id="allUidsBox" class="all-uids-box" style="display: none;">
+                <h3>📋 All Game IDs</h3>
+                <div id="allUidsList" class="all-uids-list"></div>
+            </div>
+
+            <div id="winnersDisplaySection" class="winners-display-section" style="display: none;">
+                <div class="download-section">
+                    <h4 style="color: #e0e0e0; margin-bottom: 15px; font-weight: 700;">📥 Download Winners</h4>
+                    <div class="package-input-wrapper">
+                        <label for="packageName">Package Name:</label>
+                        <input type="text" id="packageName" placeholder="Enter package name (e.g., lite, premium)" />
+                    </div>
+                    <div class="wheel-actions">
+                        <button class="nav-btn success" onclick="downloadWinners()">💾 Download as TXT</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="popup-overlay">
+            <div class="popup-content" onclick="event.stopPropagation()" style="max-width: 450px;">
+                <h2 style="margin-bottom: 25px;">🔐 Login Required</h2>
+                <div class="login-form">
+                    <div class="package-input-wrapper">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="off" />
+                    </div>
+                    <div class="package-input-wrapper" style="margin-top: 20px;">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="off" />
+                    </div>
+                    <div id="loginError" class="error-message" style="margin-top: 15px; display: none;"></div>
+                    <div class="wheel-actions" style="margin-top: 25px;">
+                        <button class="nav-btn secondary" onclick="closeLoginModal()" style="flex: 0.5;">Cancel</button>
+                        <button class="nav-btn success" onclick="handleLogin()" style="flex: 1;">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Modal -->
+        <div id="loadingModal" class="loading-modal">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <h3 style="color: #e0e0e0; margin-bottom: 20px; font-size: 20px;">Processing Your Request...</h3>
+            </div>
+        </div>
+
+        <!-- Popup Modal -->
+        <div id="popupOverlay" class="popup-overlay" onclick="closePopup()">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <h2>🎉 Congratulations Winners! 🎉</h2>
+                <p>Thank you for participating in SPEX ID Topup Random Sweep Giveaway!</p>
+                <button class="popup-close-btn" onclick="closePopup()">Close</button>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div id="historySection" class="section">
+            <div class="winners-history">
+                <h3>
+                    <span>🏆 Winners History</span>
+                    <button class="reset-winners-btn" onclick="resetWinners()">Reset Winners</button>
+                </h3>
+                <div id="winnersListHistory" class="winners-list"></div>
+                <div id="availableCountHistory" class="available-count"></div>
+            </div>
+
+            <div class="wheel-actions" style="margin-top: 20px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allGameIds = [];
+        let selectedGameIds = [];
+        let winners = [];
+
+        // Show login modal
+        function showLoginModal() {
+            const loginModal = document.getElementById('loginModal');
+            if (loginModal) {
+                loginModal.classList.add('show');
+                // Clear previous inputs
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginError').style.display = 'none';
+            }
+        }
+
+        // Close login modal
+        function closeLoginModal() {
+            const loginModal = document.getElementById('loginModal');
+            if (loginModal) {
+                loginModal.classList.remove('show');
+            }
+        }
+
+        // Handle login
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const loginError = document.getElementById('loginError');
+
+            // Hardcoded credentials
+            const correctEmail = 'spexgiveaway@gmail.com';
+            const correctPassword = 'spex@6070';
+
+            if (!email || !password) {
+                loginError.textContent = 'Please enter both email and password';
+                loginError.style.display = 'block';
+                return;
+            }
+
+            if (email !== correctEmail || password !== correctPassword) {
+                loginError.textContent = 'Invalid email or password';
+                loginError.style.display = 'block';
+                return;
+            }
+
+            // Close login modal and proceed with upload
+            closeLoginModal();
+            proceedWithUpload();
+        }
+
+        // Proceed with upload after login
+        async function proceedWithUpload() {
+            const fileInput = document.getElementById('csvFile');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const gameIdsDisplay = document.getElementById('gameIdsDisplay');
+            const gameIdsList = document.getElementById('gameIdsList');
+
+            // Reset
+            errorMessage.classList.remove('show');
+            successMessage.classList.remove('show');
+            gameIdsDisplay.style.display = 'none';
+            const duplicatesInfo = document.getElementById('duplicatesInfo');
+            if (duplicatesInfo) {
+                duplicatesInfo.classList.remove('show');
+            }
+            winners = []; // Reset winners when uploading new CSV
+            updateWinnersHistory();
+
+            if (!fileInput.files[0]) {
+                showError('Please select a CSV file');
+                return;
+            }
+
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = '⏳ UPLOADING...';
+
+            // Show loading modal with credentials
+            showLoadingModal();
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            
+            // Add credentials to form data
+            formData.append('email', 'spexgiveaway@gmail.com');
+            formData.append('password', 'spex@6070');
+
+            try {
+                // Upload and parse CSV
+                const uploadResponse = await fetch('http://localhost:3000/csv/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const uploadData = await uploadResponse.json();
+
+                if (!uploadResponse.ok) {
+                    throw new Error(uploadData.message || 'Upload failed');
+                }
+
+                // Store all unique game IDs (duplicates already removed by backend)
+                allGameIds = uploadData.gameIds;
+                selectedGameIds = uploadData.gameIds; // Use all unique IDs
+
+                // Show duplicates if any
+                const duplicatesInfo = document.getElementById('duplicatesInfo');
+                const duplicatesList = document.getElementById('duplicatesList');
+                
+                if (uploadData.duplicateCount > 0) {
+                    duplicatesList.innerHTML = '';
+                    uploadData.duplicates.forEach(dup => {
+                        const tag = document.createElement('span');
+                        tag.className = 'duplicate-tag';
+                        tag.textContent = dup;
+                        duplicatesList.appendChild(tag);
+                    });
+                    duplicatesInfo.classList.add('show');
+                } else {
+                    duplicatesInfo.classList.remove('show');
+                }
+
+                // Display all unique game IDs
+                gameIdsList.innerHTML = '';
+                selectedGameIds.forEach(id => {
+                    const tag = document.createElement('span');
+                    tag.className = 'game-id-tag';
+                    tag.textContent = id;
+                    gameIdsList.appendChild(tag);
+                });
+
+                gameIdsDisplay.style.display = 'block';
+                document.getElementById('uploadNavButtons').style.display = 'flex';
+                createWheel(selectedGameIds);
+                updateWinnersHistory();
+                
+                let successMsg = `Successfully loaded ${selectedGameIds.length} unique game IDs`;
+                if (uploadData.duplicateCount > 0) {
+                    successMsg += ` (${uploadData.duplicateCount} duplicate${uploadData.duplicateCount > 1 ? 's' : ''} removed)`;
+                }
+                showSuccess(successMsg);
+                
+                // Hide loading modal after a short delay
+                setTimeout(() => {
+                    hideLoadingModal();
+                }, 500);
+
+            } catch (error) {
+                showError(error.message || 'An error occurred');
+                hideLoadingModal();
+            } finally {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = '📤 UPLOAD & PARSE CSV';
+            }
+        }
+
+        function createWheel(gameIds) {
+            const cardContainer = document.getElementById('cardShuffleAnimation');
+            cardContainer.innerHTML = '';
+
+            // Filter out winners from display
+            const availableIds = gameIds.filter(id => !winners.includes(id));
+            
+            if (availableIds.length === 0) {
+                const message = document.createElement('div');
+                message.style.cssText = 'width: 100%; text-align: center; color: #e0e0e0; font-size: 24px; font-weight: bold; padding: 40px;';
+                message.textContent = 'All IDs have won! 🎉';
+                cardContainer.appendChild(message);
+                return;
+            }
+
+            // Professional vibrant color palette
+            const colors = [
+                '#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe',
+                '#43e97b', '#38f9d7', '#fa709a', '#fee140', '#30cfd0',
+                '#a8edea', '#fed6e3', '#ffecd2', '#fcb69f', '#ff9a9e',
+                '#fecfef', '#fad0c4', '#ffd1ff', '#a1c4fd', '#c471ed'
+            ];
+
+            // Create cards for all available IDs
+            availableIds.forEach((id, index) => {
+                const card = document.createElement('div');
+                card.className = 'game-card';
+                card.dataset.id = id;
+                
+                // Create gradient background
+                const color1 = colors[index % colors.length];
+                const color2 = colors[(index + 1) % colors.length];
+                card.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+                
+                // Display ID text
+                const displayId = id.length > 12 ? id.substring(0, 10) + '..' : id;
+                card.textContent = displayId;
+                
+                cardContainer.appendChild(card);
+            });
+        }
+
+        async function spinWheel() {
+            const spinBtn = document.getElementById('spinBtn');
+            const cardContainer = document.getElementById('cardShuffleAnimation');
+            const shuffleMessage = document.getElementById('shuffleMessage');
+            const winnerDisplay = document.getElementById('winnerDisplay');
+            const winnerText = document.getElementById('winnerText');
+            const winnerCountInput = document.getElementById('winnerCount');
+
+            if (selectedGameIds.length === 0) {
+                showError('No game IDs available');
+                return;
+            }
+
+            const winnerCount = parseInt(winnerCountInput.value) || 1;
+            if (winnerCount < 1) {
+                showError('Winner count must be at least 1');
+                return;
+            }
+
+            // Check if all IDs have won
+            const availableIds = selectedGameIds.filter(id => !winners.includes(id));
+            if (availableIds.length === 0) {
+                showError('All game IDs have already won! Please reset winners or upload a new CSV.');
+                return;
+            }
+
+            if (winnerCount > availableIds.length) {
+                showError(`Only ${availableIds.length} IDs available. Cannot select ${winnerCount} winners.`);
+                return;
+            }
+
+            spinBtn.disabled = true;
+            winnerDisplay.classList.remove('show');
+
+            // Show shuffling message
+            shuffleMessage.style.display = 'block';
+            
+            // Get all cards and add shuffling animation
+            const cards = cardContainer.querySelectorAll('.game-card');
+            cards.forEach(card => {
+                card.classList.add('shuffling');
+            });
+
+            try {
+                // Call spin API with previous winners to exclude them and winner count
+                const response = await fetch('http://localhost:3000/spin-wheel/spin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        gameIds: selectedGameIds,
+                        previousWinners: winners,
+                        winnerCount: winnerCount,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Spin failed');
+                }
+
+                // Stop shuffling animation and reveal winners
+                setTimeout(() => {
+                    shuffleMessage.style.display = 'none';
+                    
+                    // Remove shuffling class from all cards
+                    cards.forEach(card => {
+                        card.classList.remove('shuffling');
+                    });
+
+                    // Highlight selected winner cards
+                    data.winners.forEach((winner, index) => {
+                        const winnerCard = Array.from(cards).find(card => card.dataset.id === winner);
+                        if (winnerCard) {
+                            setTimeout(() => {
+                                winnerCard.classList.add('selected');
+                            }, index * 200);
+                        }
+                    });
+
+                    // After animation, show winners
+                    setTimeout(() => {
+                        // Add all winners to winners list
+                        data.winners.forEach(winner => {
+                            if (!winners.includes(winner)) {
+                                winners.push(winner);
+                            }
+                        });
+                        
+                        // Display winners - always show as a list
+                        if (data.winners.length === 1) {
+                            winnerText.innerHTML = `<div style="font-size: 22px; margin-bottom: 10px;">Winner:</div><div style="font-size: 20px;">${data.winners[0]}</div>`;
+                        } else {
+                            winnerText.innerHTML = `<div style="font-size: 22px; margin-bottom: 15px; font-weight: bold;">${data.winners.length} Winners Selected!</div>` +
+                                data.winners.map((w, i) => 
+                                    `<div style="margin: 10px 0; font-size: 18px; padding: 8px; background: rgba(255,255,255,0.2); border-radius: 5px;">${i + 1}. ${w}</div>`
+                                ).join('');
+                        }
+                        winnerDisplay.classList.add('show');
+                        
+                        // Display winners in the winners display section
+                        displayWinnersList(data.winners);
+                        
+                        // Update UI
+                        updateWinnersHistory();
+                        updateGameIdsDisplay();
+                        createWheel(selectedGameIds);
+                        
+                        spinBtn.disabled = false;
+                    }, winnerCount * 200 + 500);
+
+                }, 2000);
+
+            } catch (error) {
+                shuffleMessage.style.display = 'none';
+                cards.forEach(card => {
+                    card.classList.remove('shuffling');
+                });
+                showError(error.message || 'An error occurred while picking');
+                spinBtn.disabled = false;
+            }
+        }
+
+        function updateWinnersHistory() {
+            const winnersHistory = document.getElementById('winnersHistory');
+            const winnersList = document.getElementById('winnersListHistory');
+            const availableCount = document.getElementById('availableCountHistory');
+
+            if (!winnersList) return;
+
+            if (winners.length === 0) {
+                if (winnersHistory) {
+                    winnersHistory.classList.remove('show');
+                }
+                winnersList.innerHTML = '<div style="text-align: center; color: #999; padding: 20px;">No winners yet</div>';
+                if (availableCount) {
+                    availableCount.textContent = `Available IDs: ${selectedGameIds.length} / ${selectedGameIds.length}`;
+                }
+                return;
+            }
+
+            if (winnersHistory) {
+                winnersHistory.classList.add('show');
+            }
+            winnersList.innerHTML = '';
+
+            winners.forEach((winner, index) => {
+                const winnerItem = document.createElement('div');
+                winnerItem.className = 'winner-item';
+                winnerItem.innerHTML = `
+                    <span class="winner-number">#${index + 1}</span>
+                    <span>Winner ID: ${winner}</span>
+                `;
+                winnersList.appendChild(winnerItem);
+            });
+
+            const availableIds = selectedGameIds.filter(id => !winners.includes(id));
+            if (availableCount) {
+                availableCount.textContent = `Available IDs: ${availableIds.length} / ${selectedGameIds.length}`;
+            }
+        }
+
+        function updateGameIdsDisplay() {
+            const gameIdsList = document.getElementById('gameIdsList');
+            if (gameIdsList) {
+                gameIdsList.innerHTML = '';
+                
+                selectedGameIds.forEach(id => {
+                    const tag = document.createElement('span');
+                    tag.className = 'game-id-tag' + (winners.includes(id) ? ' winner' : '');
+                    tag.textContent = id;
+                    gameIdsList.appendChild(tag);
+                });
+            }
+            
+            // Update all UIDs box if it's visible
+            if (document.getElementById('allUidsBox') && document.getElementById('allUidsBox').style.display !== 'none') {
+                displayAllUids();
+            }
+        }
+
+        function resetWinners() {
+            if (confirm('Are you sure you want to reset all winners? This will allow all IDs to win again.')) {
+                winners = [];
+                updateWinnersHistory();
+                updateGameIdsDisplay();
+                createWheel(selectedGameIds);
+                displayAllUids(); // Update all UIDs display
+                showSuccess('Winners list has been reset');
+            }
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+        }
+
+        function showSuccess(message) {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = message;
+            successMessage.classList.add('show');
+        }
+
+        // Section Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            if (sectionName === 'upload') {
+                document.getElementById('uploadSection').classList.add('active');
+            } else if (sectionName === 'wheel') {
+                document.getElementById('wheelSection').classList.add('active');
+                // Ensure wheel is created if we have game IDs
+                if (selectedGameIds.length > 0) {
+                    createWheel(selectedGameIds);
+                    // Show all UIDs box if there are winners
+                    if (winners.length > 0) {
+                        displayAllUids();
+                    }
+                }
+            } else if (sectionName === 'history') {
+                document.getElementById('historySection').classList.add('active');
+                updateWinnersHistory();
+            }
+        }
+
+        // Display all UIDs with winners highlighted
+        function displayAllUids() {
+            const allUidsBox = document.getElementById('allUidsBox');
+            const allUidsList = document.getElementById('allUidsList');
+            
+            if (!allUidsBox || !allUidsList || selectedGameIds.length === 0) return;
+            
+            allUidsList.innerHTML = '';
+            
+            selectedGameIds.forEach(id => {
+                const tag = document.createElement('span');
+                const isWinner = winners.includes(id);
+                tag.className = 'uid-tag ' + (isWinner ? 'winner' : 'normal');
+                tag.textContent = id;
+                allUidsList.appendChild(tag);
+            });
+            
+            allUidsBox.style.display = 'block';
+        }
+
+        // Display winners list in the wheel section
+        function displayWinnersList(winnersList) {
+            const winnersDisplaySection = document.getElementById('winnersDisplaySection');
+            
+            // Show download section
+            winnersDisplaySection.style.display = 'block';
+            
+            // Display all UIDs with winners highlighted
+            displayAllUids();
+        }
+
+        // Download winners as TXT
+        function downloadWinners() {
+            const packageName = document.getElementById('packageName').value.trim();
+            
+            if (!packageName) {
+                showError('Please enter a package name');
+                return;
+            }
+
+            if (winners.length === 0) {
+                showError('No winners to download');
+                return;
+            }
+
+            // Create TXT content with format: /id gameid package_name
+            let content = '';
+            winners.forEach(winner => {
+                content += `/id ${winner} ${packageName}\n`;
+            });
+
+            // Create and download file
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `winners_${packageName}_${new Date().getTime()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            // Show congratulations popup
+            showPopup();
+        }
+
+        // Show popup
+        function showPopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.add('show');
+        }
+
+        // Close popup
+        function closePopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.remove('show');
+        }
+
+        // Show loading modal
+        function showLoadingModal() {
+            const loadingModal = document.getElementById('loadingModal');
+            if (loadingModal) {
+                loadingModal.classList.add('show');
+            }
+        }
+
+        // Hide loading modal
+        function hideLoadingModal() {
+            const loadingModal = document.getElementById('loadingModal');
+            if (loadingModal) {
+                loadingModal.classList.remove('show');
+            }
+        }
+
+        // Allow Enter key to submit login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginEmail = document.getElementById('loginEmail');
+            const loginPassword = document.getElementById('loginPassword');
+            
+            if (loginEmail && loginPassword) {
+                loginEmail.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleLogin();
+                    }
+                });
+                loginPassword.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleLogin();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
