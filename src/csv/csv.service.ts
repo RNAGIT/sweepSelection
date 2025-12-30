@@ -1,17 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { parse } from 'csv-parse/sync';
-import * as fs from 'fs';
-import * as path from 'path';
 
 @Injectable()
 export class CsvService {
-  private uploadsDir = path.join(process.cwd(), 'uploads');
-
   constructor() {
-    // Create uploads directory if it doesn't exist
-    if (!fs.existsSync(this.uploadsDir)) {
-      fs.mkdirSync(this.uploadsDir, { recursive: true });
-    }
+    // No directory creation needed - we use file.buffer directly
+    // On Vercel, file system is read-only except /tmp, but we don't need to save files
   }
 
   async parseCsvFile(file: Express.Multer.File): Promise<{
