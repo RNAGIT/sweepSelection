@@ -1520,12 +1520,17 @@
 
             try {
                 // Upload and parse CSV
-                const uploadResponse = await fetch('http://localhost:3000/csv/upload', {
+                const uploadResponse = await fetch('/csv/upload', {
                     method: 'POST',
                     body: formData,
                 });
 
-                const uploadData = await uploadResponse.json();
+                let uploadData;
+                try {
+                    uploadData = await uploadResponse.json();
+                } catch (jsonError) {
+                    throw new Error('Invalid response from server. Please try again.');
+                }
 
                 if (!uploadResponse.ok) {
                     throw new Error(uploadData.message || 'Upload failed');
@@ -1578,7 +1583,14 @@
                 }, 500);
 
             } catch (error) {
-                showError(error.message || 'An error occurred');
+                console.error('Upload error:', error);
+                let errorMessage = 'An error occurred while uploading the CSV file';
+                if (error.message) {
+                    errorMessage = error.message;
+                } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    errorMessage = 'Failed to connect to server. Please check your connection and try again.';
+                }
+                showError(errorMessage);
                 hideLoadingModal();
             } finally {
                 uploadBtn.disabled = false;
@@ -1673,7 +1685,7 @@
 
             try {
                 // Call spin API with previous winners to exclude them and winner count
-                const response = await fetch('http://localhost:3000/spin-wheel/spin', {
+                const response = await fetch('/spin-wheel/spin', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1685,7 +1697,12 @@
                     }),
                 });
 
-                const data = await response.json();
+                let data;
+                try {
+                    data = await response.json();
+                } catch (jsonError) {
+                    throw new Error('Invalid response from server. Please try again.');
+                }
 
                 if (!response.ok) {
                     throw new Error(data.message || 'Spin failed');
@@ -1744,11 +1761,18 @@
                 }, 2000);
 
             } catch (error) {
+                console.error('Spin error:', error);
                 shuffleMessage.style.display = 'none';
                 cards.forEach(card => {
                     card.classList.remove('shuffling');
                 });
-                showError(error.message || 'An error occurred while picking');
+                let errorMessage = 'An error occurred while picking winners';
+                if (error.message) {
+                    errorMessage = error.message;
+                } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    errorMessage = 'Failed to connect to server. Please check your connection and try again.';
+                }
+                showError(errorMessage);
                 spinBtn.disabled = false;
             }
         }

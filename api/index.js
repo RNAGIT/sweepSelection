@@ -3,7 +3,7 @@ const { AppModule } = require('../dist/app.module');
 const { ExpressAdapter } = require('@nestjs/platform-express');
 const express = require('express');
 const { join } = require('path');
-const { readFileSync } = require('fs');
+const { readFileSync, existsSync } = require('fs');
 
 let cachedApp;
 
@@ -23,24 +23,49 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Serve static files using express
-  const publicPath = join(__dirname, '..', 'public');
-  expressApp.use(express.static(publicPath));
+  // Initialize NestJS app first (this registers all API routes)
+  await app.init();
 
-  // Serve index.html for root route
-  expressApp.get('/', (req, res) => {
+  // Serve static files (CSS, JS, images, etc.) - after API routes are registered
+  const publicPath = join(__dirname, '..', 'public');
+  expressApp.use(express.static(publicPath, { 
+    index: false, // Don't serve index.html automatically
+    fallthrough: true // Continue to next middleware if file not found
+  }));
+
+  // Serve index.html for all non-API, non-file routes (SPA fallback)
+  // This must be last so API routes and static files take precedence
+  expressApp.use((req, res, next) => {
+    // Only handle GET requests
+    if (req.method !== 'GET') {
+      return next();
+    }
+
+    // Skip API routes - they should be handled by NestJS
+    if (req.path.startsWith('/csv/') || req.path.startsWith('/spin-wheel/')) {
+      return next();
+    }
+
+    // Skip files with extensions (they should be served by static middleware)
+    if (req.path.includes('.') && req.path !== '/') {
+      return next();
+    }
+
+    // For all other routes, serve index.html (SPA routing)
     try {
       const indexPath = join(publicPath, 'index.html');
-      const indexContent = readFileSync(indexPath, 'utf-8');
-      res.setHeader('Content-Type', 'text/html');
-      res.send(indexContent);
+      if (existsSync(indexPath)) {
+        const indexContent = readFileSync(indexPath, 'utf-8');
+        res.setHeader('Content-Type', 'text/html');
+        return res.send(indexContent);
+      }
     } catch (error) {
       console.error('Error serving index.html:', error);
-      res.status(500).send('Error loading application');
     }
+    
+    next();
   });
 
-  await app.init();
   cachedApp = expressApp;
   return expressApp;
 }
@@ -51,7 +76,13 @@ module.exports = async function handler(req, res) {
     return app(req, res);
   } catch (error) {
     console.error('Handler error:', error);
-    res.status(500).json({ error: 'Internal server error', message: error.message });
+    if (!res.headersSent) {
+      res.status(500).json({ 
+        error: 'Internal server error', 
+        message: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      });
+    }
   }
 };
 
