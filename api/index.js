@@ -15,6 +15,24 @@ async function bootstrap() {
   const expressApp = express();
   const adapter = new ExpressAdapter(expressApp);
   
+  // Serve index.html for root route BEFORE initializing NestJS
+  // This prevents AppController from intercepting the root route
+  const publicPath = join(__dirname, '..', 'public');
+  expressApp.get('/', (req, res) => {
+    try {
+      const indexPath = join(publicPath, 'index.html');
+      if (existsSync(indexPath)) {
+        const indexContent = readFileSync(indexPath, 'utf-8');
+        res.setHeader('Content-Type', 'text/html');
+        return res.send(indexContent);
+      }
+    } catch (error) {
+      console.error('Error serving index.html:', error);
+    }
+    // If index.html doesn't exist, continue to NestJS
+    return res.status(404).send('Not found');
+  });
+  
   const app = await NestFactory.create(AppModule, adapter);
 
   // Enable CORS
@@ -23,11 +41,10 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Initialize NestJS app first (this registers all API routes)
+  // Initialize NestJS app (this registers all API routes)
   await app.init();
 
   // Serve static files (CSS, JS, images, etc.) - after API routes are registered
-  const publicPath = join(__dirname, '..', 'public');
   expressApp.use(express.static(publicPath, { 
     index: false, // Don't serve index.html automatically
     fallthrough: true // Continue to next middleware if file not found
